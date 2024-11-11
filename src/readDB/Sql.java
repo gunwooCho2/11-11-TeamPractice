@@ -15,7 +15,7 @@ public class Sql {
 			"select d.deptno,d.dname,e.empno,e.ename,e.mgr,e.sal,e.deptno as deptno_1,s.losal,s.hisal,s.grade,e2.empno mgr_empno,e2.ename mgr_ename from emp e right outer join dept d on (e.deptno = d.deptno) left outer join salgrade s on (e.sal between s.losal and s.hisal) left outer join emp e2 on (e.mgr = e2.empno) order by deptno, empno",
 			"select * from emp where sal > any (select min(sal) from emp where job = 'SALESMAN')"
 	};
-	HashMap<String, String> hashMap;
+	HashMap<String, String> hashMap = new HashMap<String, String>();
 	public HashMap<String, String> sql(){
 		for(int i = 0 ; i<keys.length ; i++) {
 		hashMap.put(keys[i], sqls[i]);
